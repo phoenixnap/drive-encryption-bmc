@@ -23,7 +23,10 @@ Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses
 - [EMP](https://emp.phoenixnap.com) account
 - Python 3 (versions 3.6 and higher)
   - Python **PyKMIP** package
-- cryptsetup
+- Cryptsetup
+```
+sudo apt install cryptsetup-bin
+```
 - luksFormat
 
 ## Creating a Bare Metal Cloud account
