@@ -1,0 +1,31 @@
+# Import libraries
+
+import subprocess
+import os
+from requests import get, ConnectionError, Timeout
+
+# Change directory to the location of secretfs
+
+os.chdir('/home/ubuntu/')
+
+# First part: Establish a client connection and fetch key
+
+try:
+    request = get("https://emp.phoenixnap.com", timeout=60)
+except(ConnectionError, Timeout):
+    print("Connection error, retrying...")
+c = client.ProxyKmipClient(config_file="<path to pykmip.conf>")
+with c:
+    SECRET = str(c.get('<UUID of security object from EMP>'))
+    print("Success! Unlocking and mounting the device.")
+
+# Second part: Automating the commands to attach, unlock and mount the device
+
+LUKS_DEVICE = "/dev/loop101"
+LUKS_DEVICE_MAP = "secretfs"
+LUKS_DEVICE_MOUNT_POINT = "/mnt/encrypted"
+MAPPER = '/dev/mapper/' + LUKS_DEVICE_MAP
+subprocess.run(['sudo', 'losetup', LUKS_DEVICE, LUKS_DEVICE_MAP])
+ps = subprocess.Popen(('echo', SECRET), stdout=subprocess.PIPE)
+subprocess.check_output(('sudo', 'cryptsetup', 'luksOpen', LUKS_DEVICE, LUKS_DEVICE_MAP), stdin=ps.stdout)
+subprocess.run(['sudo', 'mount' ,MAPPER ,LUKS_DEVICE_MOUNT_POINT])
