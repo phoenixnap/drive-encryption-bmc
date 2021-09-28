@@ -48,15 +48,19 @@ Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses
 1. Create **Group**.
 2. Add **New App** to the group. 
 3. Copy the **UUID** of the App.
-4. In the terminal, generate a private key:
+4. SSH into the BMC server and provide the identity file. For example:
+```
+ssh -i .ssh/id_rsa ubuntu@123.456.789
+```
+5. In the terminal, generate a private key:
 ``` 
 openssl genrsa -out <key name>.key
 ```
-5. Generate the certificate using the key. Set the **Common Name** as the App **UUID**:
+6. Generate the certificate using the key. Set the **Common Name** as the App **UUID**:
 ```
 openssl req -new -x509 -key <key name>.key -out <certificate name>.cert -days <number of days>
 ```
-6. Change App authentication to **Certificate** and upload generated Certificate to the App.
+7. Change App authentication to **Certificate** and upload generated Certificate to the App.
 
 ## Installing PyKMIP
 
