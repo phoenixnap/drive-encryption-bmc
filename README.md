@@ -134,9 +134,13 @@ df | grep secretfs
 
 ## Automount Script
 
-Create a service in **`init.d`** with the contents of the **`automount`** file. Make the service executable, update service information and reboot. The service automatically starts on reboot. 
+Create a service in **`/etc/init.d`** with the contents of the **`automount`** file. Make the service executable, update service information and reboot. The service automatically starts on reboot. Check status of the servie after reboot with:
 
-In case of compromise, revoke security object from EMP and the device doesn't automatically unlock and mount on the next restart. In case of connection error, the service tries to connect again.
+```
+systemctl status automount
+```
+
+In case of compromise, revoke security object from EMP and the device doesn't automatically unlock and mount on the next restart. In case of connection error, the service retries to connect.
 
 For a comprehensive tutorial, visit our KB: [BMC Drive Encryption Using EMP](https://phoenixnap.com/kb/how-to-set-up-bmc-drive-encryption-using-emp)
 
