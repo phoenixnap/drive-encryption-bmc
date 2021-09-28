@@ -11,7 +11,7 @@ Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses
 
 <p align="center">
   <a href="https://phoenixnap.com/bare-metal-cloud">Bare Metal Cloud</a> •
-  <a href="https://phoenixnap.com/kb/provision-secure-tokens-secrets-emp">EMP</a> •
+  <a href="https://phoenixnap.com/security/encryption-management-platform">Encryption Management Platform</a> •
   <a href="https://developers.phoenixnap.com/">Developers Portal</a> •
   <a href="http://phoenixnap.com/kb">Knowledge Base</a> •
   <a href="https://developers.phoenixnap.com/support">Support</a>
@@ -19,8 +19,8 @@ Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses
 
 ## Requirements
 
-- [Bare Metal Cloud](https://bmc.phoenixnap.com) account
-- [EMP](https://emp.phoenixnap.com) account
+- [Bare Metal Cloud](https://phoenixnap.com/kb/bare-metal-cloud-portal-quick-start-guide) account
+- [EMP](https://phoenixnap.com/kb/provision-secure-tokens-secrets-emp) account
 - Python 3 (versions 3.6 and higher)
   - Python **PyKMIP** package
 - Cryptsetup
@@ -48,10 +48,12 @@ sudo apt install cryptsetup-bin
 
 ## Pre-Setup EMP
 
+[Provision and secure tokens](https://phoenixnap.com/kb/provision-secure-tokens-secrets-emp) using the phoenixNAP EMP platform.
+
 1. Create **Group**.
 2. Add **New App** to the group. 
 3. Copy the **UUID** of the App.
-4. SSH into the BMC server and provide the identity file. For example:
+4. [SSH into the BMC](https://phoenixnap.com/kb/bmc-remote-console) server and provide the identity file. For example:
 ```
 ssh -i .ssh/id_rsa ubuntu@123.456.789
 ```
