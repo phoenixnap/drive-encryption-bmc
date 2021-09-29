@@ -7,7 +7,7 @@
 </h1>
 
 <p align="center">
-Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses the phoenixNAP Encryption Management Platform (EMP) as a key storage and PyKMIP to transfer certificates for maximum token security.
+Automatically mount an encrypted drive on Bare Metal Cloud. This collection uses the phoenixNAP Encryption Management Platform (EMP) as a key storage system and PyKMIP to transfer certificates for maximum token security.
 
 <p align="center">
   <a href="https://phoenixnap.com/bare-metal-cloud">Bare Metal Cloud</a> •
@@ -136,7 +136,7 @@ df | grep secretfs
 
 ## Automount Script
 
-Create a service in **`/etc/init.d`** with the contents of the **`automount`** file. Make the service executable, update service information and reboot. The service automatically starts on reboot. Check status of the servie after reboot with:
+Create a service in **`/etc/init.d`** with the contents of the **`automount`** file. Make the service executable, update service information and reboot. The service automatically starts on reboot. Check status with:
 
 ```
 systemctl status automount
