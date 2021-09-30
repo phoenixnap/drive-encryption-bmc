@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+
+### BEGIN INIT INFO
+# Provides:       automount
+# Required-Start: $ALL
+# Should-Start: 
+# Required-Stop:
+# Should-Stop:
+# Default-Start:  2 3 5
+# Default-Stop:
+# Description:    Automated LUKS Unlock
+### END INIT INFO
+
 # Import libraries
 
 import subprocess
